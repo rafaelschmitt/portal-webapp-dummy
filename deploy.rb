@@ -1,5 +1,5 @@
 # postsetup tasks
-task = newTask
+task = Deployman::App::Postsetup.newTask
 task.title = "database"
 task.desc = "do database stuff"
 task.commands = [
@@ -9,7 +9,7 @@ task.commands = [
 	"echo 'y' | php app/console doctrine:fixtures:load"	
 ]
 
-task = newTask
+task = Deployman::App::Postsetup.newTask
 task.title = "other stuff"
 task.desc = "just do the other stuff"
 task.commands = [
