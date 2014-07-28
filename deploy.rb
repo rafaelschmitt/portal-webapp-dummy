@@ -1,4 +1,19 @@
-# set current link
-src = "/home/kokoloko/projects/sandbox/liveserver/beiuns/software/portal-webapp-dummy/releases/v4.0.0/index.html"
-dst = "/home/kokoloko/projects/sandbox/liveserver/beiuns/software/portal-webapp-dummy/current/index.html"
-system 'ln', '-s', '-f', src, dst
+# postsetup tasks
+newTask (
+	"database", 
+	"do database stuff blablado database stuff blablado database stuff blablado database stuff ", 
+	[
+		"php app/console doctrine:database:create", 
+		"php app/console doctrine:schema:update --dump-sql", 
+		"php app/console doctrine:schema:update --force", 
+		"echo 'y' | php app/console doctrine:fixtures:load"
+	]
+)
+
+newTask (
+	"other stuff", 
+	"just do this other stuff", 
+	[
+		"otherstuff command1", 
+	]
+)
