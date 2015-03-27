@@ -1,3 +1,5 @@
+Deployman::Parser::Yaml.setParameter("#{$config['dest']}/app/config/parameters.yml", '["parameters"]["assets_version"]', SecureRandom.hex)
+
 # postsetup tasks
 task = Deployman::App::Postsetup.newTask
 task.title = "database"
