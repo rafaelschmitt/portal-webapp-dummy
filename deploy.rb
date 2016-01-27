@@ -1,5 +1,11 @@
 Deployman::Parser::Yaml.setParameter("#{$config['dest']}/app/config/parameters.yml", '["parameters"]["assets_version"]', SecureRandom.hex)
 
+if $config.has_key? 'mediadb_path'
+	system "ln -s #{$config['mediadb_path']} app/mediadb"
+else
+	system "ln -s /dataApplication/sites/#{$config['customer']}/data/media app/mediadb"
+end
+
 # postsetup tasks
 task = Deployman::App::Postsetup.newTask
 task.title = "database"
