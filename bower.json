@@ -1,0 +1,6 @@
+{
+  "name": "portal-webapp-dummy",
+  "dependencies": {
+    "better-dateinput-polyfill": "~1.5.2"
+  }
+}

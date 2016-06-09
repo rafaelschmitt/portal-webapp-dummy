@@ -1,9 +1,10 @@
+system "npm install --production"
 Deployman::Parser::Yaml.setParameter("#{$config['dest']}/app/config/parameters.yml", '["parameters"]["assets_version"]', SecureRandom.hex)
 
 if $config.has_key? 'mediadb_path'
-	system "ln -s #{$config['mediadb_path']} app/mediadb"
+    system "ln -s #{$config['mediadb_path']} app/mediadb"
 else
-	system "ln -s /dataApplication/sites/#{$config['customer']}/data/media app/mediadb"
+    system "ln -s /dataApplication/sites/#{$config['customer']}/data/media app/mediadb"
 end
 
 # postsetup tasks
@@ -11,10 +12,10 @@ task = Deployman::App::Postsetup.newTask
 task.title = "database"
 task.desc = "do database stuff"
 task.commands = [
-	"php app/console doctrine:database:create", 
-	"php app/console doctrine:schema:update --dump-sql", 
-	"php app/console doctrine:schema:update --force", 
-	"echo 'y' | php app/console doctrine:fixtures:load"	
+	"php app/console doctrine:database:create",
+	"php app/console doctrine:schema:update --dump-sql",
+	"php app/console doctrine:schema:update --force",
+	"echo 'y' | php app/console doctrine:fixtures:load"
 ]
 
 task = Deployman::App::Postsetup.newTask
