@@ -6,6 +6,6 @@
     "bower": "^1.7.7"
   },
   "scripts": {
-    "postinstall": "/dataApplication/customers/gogol-medien.info/staging02/software/rafaelschmitt/portal-webapp-dummy/releases/v8.0.2/node_modules/.bin/bower install"
+    "postinstall": "bower cache clean && bower install"
   }
 }
