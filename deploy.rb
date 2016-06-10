@@ -11,6 +11,8 @@ system("env")
 puts "----------------------------------------------------"
 system("which git")
 puts "----------------------------------------------------"
+system("pwd")
+puts "----------------------------------------------------"
 
 system "npm install --production"
 Deployman::Parser::Yaml.setParameter("#{$config['dest']}/app/config/parameters.yml", '["parameters"]["assets_version"]', SecureRandom.hex)
@@ -51,4 +53,6 @@ puts "--- env --------------------------------------------"
 system("env")
 puts "----------------------------------------------------"
 system("which git")
+puts "----------------------------------------------------"
+system("pwd")
 puts "----------------------------------------------------"
