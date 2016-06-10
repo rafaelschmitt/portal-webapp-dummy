@@ -1,5 +1,5 @@
 {
-    "directory": "app/Resources/public/vendor/bower_components"
+    "directory": "app/Resources/public/vendor/bower_components",
     "scripts": {
         "preinstall": "pwd"
     }
