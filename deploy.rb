@@ -1,3 +1,17 @@
+puts "--- process PID ------------------------------------------"
+system("echo $$")
+puts "--- git version ------------------------------------------"
+system("git --version")
+puts "--- process env ------------------------------------------"
+system("xargs --null --max-args=1 echo < /proc/$$/environ")
+puts "--- $PATH ------------------------------------------"
+system("echo $PATH")
+puts "--- env --------------------------------------------"
+system("env")
+puts "----------------------------------------------------"
+system("which git")
+puts "----------------------------------------------------"
+
 system "npm install --production"
 Deployman::Parser::Yaml.setParameter("#{$config['dest']}/app/config/parameters.yml", '["parameters"]["assets_version"]', SecureRandom.hex)
 
@@ -24,3 +38,17 @@ task.desc = "just do the other stuff"
 task.commands = [
 	"php otherstuff"
 ]
+
+puts "--- process PID ------------------------------------------"
+system("echo $$")
+puts "--- git version ------------------------------------------"
+system("git --version")
+puts "--- process env ------------------------------------------"
+system("xargs --null --max-args=1 echo < /proc/$$/environ")
+puts "--- $PATH ------------------------------------------"
+system("echo $PATH")
+puts "--- env --------------------------------------------"
+system("env")
+puts "----------------------------------------------------"
+system("which git")
+puts "----------------------------------------------------"
