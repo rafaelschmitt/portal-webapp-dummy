@@ -14,7 +14,7 @@ puts "----------------------------------------------------"
 system("pwd")
 puts "----------------------------------------------------"
 
-system "bower install"
+exec "bower install"
 Deployman::Parser::Yaml.setParameter("#{$config['dest']}/app/config/parameters.yml", '["parameters"]["assets_version"]', SecureRandom.hex)
 
 if $config.has_key? 'mediadb_path'
